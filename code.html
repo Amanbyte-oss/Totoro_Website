@@ -1,0 +1,312 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Totoro - Read Manga the Way It Was Meant to Be.</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#564336",
+                        "surface-dim": "#0b1326",
+                        "inverse-surface": "#dae2fd",
+                        "surface-bright": "#31394d",
+                        "secondary-fixed": "#d8e3fb",
+                        "error-container": "#93000a",
+                        "surface-container-low": "#131b2e",
+                        "on-surface-variant": "#ddc1b1",
+                        "on-surface-muted": "#94A3B8",
+                        "primary-fixed": "#ffdcc7",
+                        "primary": "#ffb787",
+                        "on-primary": "#502400",
+                        "on-surface": "#F8FAFC",
+                        "primary-container": "#f38020",
+                        "surface-container-lowest": "#060e20",
+                        "surface-container": "#171f33",
+                        "primary-fixed-dim": "#ffb787",
+                        "on-tertiary": "#233144",
+                        "on-tertiary-fixed-variant": "#3a485c",
+                        "border-subtle": "#1E293B",
+                        "inverse-on-surface": "#283044",
+                        "surface-container-highest": "#2d3449",
+                        "tertiary-fixed": "#d5e3fd",
+                        "background": "#0b1326",
+                        "on-secondary-fixed": "#111c2d",
+                        "on-primary-container": "#592900",
+                        "tertiary-container": "#91a0b7",
+                        "on-error": "#690005",
+                        "outline": "#a58c7d",
+                        "on-primary-fixed": "#311300",
+                        "on-tertiary-container": "#29374a",
+                        "surface-container-high": "#222a3d",
+                        "surface": "#0b1326",
+                        "secondary": "#bcc7de",
+                        "inverse-primary": "#964900",
+                        "surface-variant": "#2d3449",
+                        "on-tertiary-fixed": "#0d1c2f",
+                        "on-background": "#dae2fd",
+                        "surface-tint": "#ffb787",
+                        "tertiary": "#b9c7e0",
+                        "on-error-container": "#ffdad6",
+                        "error": "#F43F5E",
+                        "tertiary-fixed-dim": "#b9c7e0",
+                        "on-secondary-container": "#aeb9d0",
+                        "secondary-container": "#3e495d",
+                        "secondary-fixed-dim": "#bcc7de",
+                        "on-secondary-fixed-variant": "#3c475a",
+                        "on-primary-fixed-variant": "#723600",
+                        "on-secondary": "#263143"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1rem",
+                        "stack-lg": "2rem",
+                        "stack-xs": "0.25rem",
+                        "container-margin": "1rem",
+                        "gutter": "0.75rem",
+                        "stack-xl": "4rem"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "headline-sm": ["Manrope"],
+                        "headline-display": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "label-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "eyebrow": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-display": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-lg": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "eyebrow": ["11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .slider-track {
+            display: flex;
+            animation: scroll 40s linear infinite;
+        }
+        
+        .slider-track:hover {
+            animation-play-state: paused;
+        }
+        
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-250px * 12)); }
+        }
+        
+        .image-card {
+            flex-shrink: 0;
+            width: 250px;
+            margin-right: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .image-card:hover {
+            transform: scale(1.05) translateY(-10px);
+            z-index: 10;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col">
+<!-- Top Navigation from Shared Components -->
+<nav class="fixed top-0 w-full z-50 bg-surface dark:bg-surface bg-surface-container dark:bg-surface-container-high shadow-sm">
+<div class="flex justify-between items-center px-container-margin py-stack-md max-w-7xl mx-auto w-full">
+<div class="flex items-center gap-stack-md">
+<span class="text-headline-md font-headline-md font-black text-primary dark:text-primary">Totoro</span>
+</div>
+<!-- Desktop Nav -->
+<div class="hidden md:flex items-center gap-stack-lg">
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-lg text-label-lg hover:text-primary-container transition-all" href="#">Features</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-lg text-label-lg hover:text-primary-container transition-all" href="#">Library</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-lg text-label-lg hover:text-primary-container transition-all" href="#">Download</a>
+</div>
+<div class="flex items-center gap-stack-md">
+<button class="hidden md:block bg-surface-container border border-border-subtle text-on-surface font-label-lg text-label-lg px-6 py-2 rounded-lg hover:bg-surface-container-high transition-colors">Donate</button>
+<button class="md:hidden text-on-surface">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="flex-grow pt-24 pb-stack-xl">
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-container-margin py-stack-xl flex flex-col lg:flex-row items-center gap-stack-xl">
+<div class="flex-1 space-y-stack-md text-center lg:text-left z-10">
+<h1 class="font-headline-display text-headline-display text-on-surface tracking-tight">
+                    Read Manga the Way It Was <span class="text-primary">Meant to Be.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-muted max-w-2xl mx-auto lg:mx-0">
+                    Experience the ultimate dark mode reader. Ultra-fast, seamlessly synced, and designed specifically for the night owl manga enthusiast.
+                </p>
+<div class="pt-stack-sm flex flex-col sm:flex-row justify-center lg:justify-start gap-stack-md">
+<button class="bg-primary text-on-primary font-label-lg text-label-lg px-8 py-4 rounded-lg shadow-[0_0_20px_rgba(255,183,135,0.3)] hover:shadow-[0_0_30px_rgba(255,183,135,0.5)] transition-all transform hover:-translate-y-1">
+                        Download Now
+                    </button>
+<button class="bg-surface-container border border-border-subtle text-on-surface font-label-lg text-label-lg px-8 py-4 rounded-lg hover:bg-surface-container-high transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="play_circle">play_circle</span>
+                        See it in action
+                    </button>
+</div>
+</div>
+<div class="flex-1 flex justify-center items-center relative z-0">
+<div class="absolute inset-0 bg-primary opacity-20 blur-[100px] rounded-full"></div>
+<img alt="Totoro Logo" class="w-64 h-64 md:w-96 md:h-96 object-contain drop-shadow-2xl z-10 animate-float" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx3Y4tp0Ne1XqmS4ttfmnGRIWxb7BXTv2iWiJmd_o7vMpbeKSL44ln0DnXT_dPljuzPoRm02kE_hl2K6ByBRsLe8_9_MnHBs8hsi421smjazgtK3w7LhH-mIgCBNWz45xzpxtHzfewvWo3MLae2IfQjUxzYIgukHyH5cN5E_R4qHMpJnBnSSIBt8jXnIiOrbdyIb3_4styq_y3J5m7Bj1IyvBsOEp31HOzQMR6sVJ6nQ457sjlXfgT2Ah34jGIfWyWbw">
+</div>
+</section>
+<!-- Interactive Image Slider (Glassmorphism) -->
+<section class="py-stack-xl overflow-hidden bg-surface-container-lowest border-y border-border-subtle relative">
+<div class="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background z-10 pointer-events-none"></div>
+<div class="max-w-full mx-auto pb-stack-lg px-container-margin">
+<h2 class="font-headline-lg text-headline-lg text-center mb-stack-lg">A Native, Immersive Experience</h2>
+</div>
+<div class="slider-container flex overflow-x-hidden relative">
+<div class="slider-track items-center py-stack-md"><div class="image-card glass-panel rounded-xl p-2 shadow-2xl"><img alt="App Screenshot" class="w-full h-auto rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB548vibJTKGorduC785JwiIIgzzgHl8Ie4nTNFGzaZEgHhuafPOe41WLsq8geR4m6vphV_hv_cTTI8p8pAyN8ehpypljiX7KJVm-QHqh5vaAQhtjdOqzxLpPnqy41RP7QdtBqFaQq2_j-wsl0TFLoAsrl00tOKqo44QWQzHaynPuoZQ2lWBPiiSCFSVegH6q_Fc9sJVLYTW0Qn8Ama3PIHPJHkpk-u7-60aCtehEmW2oT_vhn4U_EFWr0kBA1Nmex3bg"></div><div class="image-card glass-panel rounded-xl p-2 shadow-2xl mt-8"><img alt="App Screenshot" class="w-full h-auto rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVFOIyT_vndTbdMOXlt-FzaKslpHGX0YZHjEZlu7JoBdGl8wfzOfOf1ip0r5XgGUUJSsGeNG-mq-lVaemuttiw2JukUKm6beSv2JqZVAn_jK26_Tm8hufCt8F4doPJK78RdryWnKsS3vsHbuTDcot-CRY8OTTkVCI-aT_bo5XtUlRmiGh_XG1gsnWbiP2eWxEzO3ShBr8zTAf9rtP3If-Gj4qBNU72p9squvKEOLljrXRr3-b-bQ-dDBIZhbvV-mH1mg"></div><div class="image-card glass-panel rounded-xl p-2 shadow-2xl"><img alt="App Screenshot" class="w-full h-auto rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqXViZZZ2WgZ1Ue2cv8QJkagyIaAH5oF8htAGJ8LOlayVnwtLQp807aRyy3fWMyK8ELlm8T1_H4P8YTdhOE-_duDNM0oIGSIKlc3Yv4ueh_cVIn9MDzTkLDhVwK-EsA3s5Xhdio1VvANqc1KYnK6RAsAG_OUcn0crZkK8ZHUu-LcZl0ZtSRuiSCzP1ehGebleXBOUZq6HDpnmSqBBHL-5c94EqUy1MegWGUoFtfMvUD9kGnQOW7Hj3ZzP4iCYQP4YI3Q"></div><div class="image-card glass-panel rounded-xl p-2 shadow-2xl mt-8"><img alt="App Screenshot" class="w-full h-auto rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfezZTsidxYnyMlUPeJXuOIOPHEVCnT38xYXdcMH7lx8jjGtg15FJ3k1lT1QgE9sQv97YQXRKbaxBnn_0oHj6VZS63q241Ns2l82WoPLyzSym7U1UOCpUBDGaOGVDH1zPUvDdM5uKWIqKFXUg2VNRiyJQZWEAYobUxolkos35qAiUw04fPheF4zqfWBSxMzPDGJxa2QCzEB5vdmnklKIaYN1S5c219zbcZXPduyTBF5o_rz8DArVTplydHxggWiAfI3Q"></div><div class="image-card glass-panel rounded-xl p-2 shadow-2xl"><img alt="App Screenshot" class="w-full h-auto rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH49tNQyRk91E0YFcYFPpPXN3Ke9XvCQZPjGjC8sKwrsxL4wq8QwurF9v_2y5gbi7sjDWm_exz_ALNMPbGFSYCU9hs8gWWvpWiCINs4UJmjnqyxZvMWghZ2AKubflD8isZ2eyECGX_9jtTTDzE-LXXQ9MprNyIkSZhFVTyvBVVz8OSS4kjeBvLVqeZjHkts48kzSVAvE7bTBRXix5aMYp3Xujr2XwWx0QAE7vauTTDZhwuYZUhcRRpdpyoLwWY5St-iA"></div><div class="image-card glass-panel rounded-xl p-2 shadow-2xl mt-8"><img alt="App Screenshot" class="w-full h-auto rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdhgk0LtkK0T_HPEXefMP3_VKqbceYyJEloR8TNU16tUBEzx2wgzzBy7cpG3HpY00wR2R0pOKDCaQFGzdQ2w1Y9hiqgPTNeVza2IwbngVkZFBMRsRe_4m0LVujigK036n75SEv4NUrVmENfjcz7JlFoAYVuht-gMpX5IqRgzFmUlw0p_UXN9Y5UQFGqm1yWSOxNrxKnGJLGbudlz4R_owppSiOcworFEjX6eyONPnBmx9b57ZVx4b53y8QVXCYu6rfdw"></div><div class="image-card glass-panel rounded-xl p-2 shadow-2xl"><img alt="App Screenshot" class="w-full h-auto rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuKXUMIlp09qYs8r9R5DkSDzY2Qqp-bVHIYFF06thu1DpC_EW64JSlUAce_FrftZqJRuyE3ZjOOl4WgmXEAaD_qEMQ-7uCDDJuejqMOQMwkcIPl9lE1XQ5jr02_qqesb5s59K-Q9PzCI77_EnKPl2NHVEYHGMmHiVVVqFDXcKkee7vPZgXs4Btx8I9onN8xZs2lIIl7NdudneJa4VrxzHl_56_tTzOPzQWeR7BFP78fizWHehhwLSdM1BwhQ3zOydSLg"></div><div class="image-card glass-panel rounded-xl p-2 shadow-2xl mt-8"><img alt="App Screenshot" class="w-full h-auto rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdiaBp-VlGW8bc0FKxO1qGJl_QDYd5jAB2VeWjyfWoFSay-WIqolFn-JkhXTfftclt4HY2rzD4w70hTmCEgvUGYr5WLWKDzU-8K6n03FuCW2tUTcvQviuUK6eJW9rhNHxUNzhW0zS-xwkSBsiwams9qKJLBHtWnnDvVzwILiEg0G12Ceq0wRhKsPIyeDjCMN8q6eH2TjA4vlVp5L33R0ubej_tVToikfX8nywwWt0itL3MBnHTsd69PEtDqVFKG2jO_A"></div></div>
+</div>
+</section>
+<!-- Features Grid -->
+<section class="max-w-7xl mx-auto px-container-margin py-stack-xl">
+<div class="text-center mb-stack-xl">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Designed for the Obsessed</h2>
+<p class="font-body-lg text-body-lg text-on-surface-muted mt-stack-sm max-w-2xl mx-auto">Every detail tuned for the perfect reading session.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-stack-lg">
+<!-- Feature 1 -->
+<div class="bg-surface-container rounded-xl p-stack-lg border border-border-subtle hover:border-primary transition-colors group relative overflow-hidden">
+<div class="absolute -right-10 -top-10 w-32 h-32 bg-primary opacity-10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity"></div>
+<div class="w-12 h-12 rounded-lg bg-surface flex items-center justify-center mb-stack-md text-primary border border-border-subtle">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-stack-sm">Ultra-Fast Loading</h3>
+<p class="font-body-md text-body-md text-on-surface-muted">Pre-fetching technology ensures the next page is always ready before you even swipe. Zero buffering.</p>
+</div>
+<!-- Feature 2 -->
+<div class="bg-surface-container rounded-xl p-stack-lg border border-border-subtle hover:border-primary transition-colors group relative overflow-hidden">
+<div class="absolute -right-10 -top-10 w-32 h-32 bg-primary opacity-10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity"></div>
+<div class="w-12 h-12 rounded-lg bg-surface flex items-center justify-center mb-stack-md text-primary border border-border-subtle">
+<span class="material-symbols-outlined" data-icon="cloud_off">cloud_off</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-stack-sm">Offline Mode</h3>
+<p class="font-body-md text-body-md text-on-surface-muted">Download entire volumes with a single tap. Read seamlessly during your commute or off the grid.</p>
+</div>
+<!-- Feature 3 -->
+<div class="bg-surface-container rounded-xl p-stack-lg border border-border-subtle hover:border-primary transition-colors group relative overflow-hidden">
+<div class="absolute -right-10 -top-10 w-32 h-32 bg-primary opacity-10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity"></div>
+<div class="w-12 h-12 rounded-lg bg-surface flex items-center justify-center mb-stack-md text-primary border border-border-subtle">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-stack-sm">Customizable Reader</h3>
+<p class="font-body-md text-body-md text-on-surface-muted">Tweak brightness, reading direction, background colors, and tap zones to match your exact preference.</p>
+</div>
+<div class="bg-surface-container rounded-xl p-stack-lg border border-border-subtle hover:border-primary transition-colors group relative overflow-hidden">
+<div class="absolute -right-10 -top-10 w-32 h-32 bg-primary opacity-10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity"></div>
+<div class="w-12 h-12 rounded-lg bg-surface flex items-center justify-center mb-stack-md text-primary border border-border-subtle">
+<span class="material-symbols-outlined">auto_awesome</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-stack-sm">AI Recommendations</h3>
+<p class="font-body-md text-body-md text-on-surface-muted">Get personalized manhwa suggestions powered by our smart recommendation engine.</p>
+</div><!-- Feature 5 -->
+<div class="bg-surface-container rounded-xl p-stack-lg border border-border-subtle hover:border-primary transition-colors group relative overflow-hidden">
+<div class="absolute -right-10 -top-10 w-32 h-32 bg-primary opacity-10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity"></div>
+<div class="w-12 h-12 rounded-lg bg-surface flex items-center justify-center mb-stack-md text-primary border border-border-subtle">
+<span class="material-symbols-outlined">database</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-stack-sm">1200+ Sources</h3>
+<p class="font-body-md text-body-md text-on-surface-muted">Access a massive library of manga from over a thousand sources worldwide, all in one place.</p>
+</div>
+<!-- Feature 6 -->
+<div class="bg-surface-container rounded-xl p-stack-lg border border-border-subtle hover:border-primary transition-colors group relative overflow-hidden">
+<div class="absolute -right-10 -top-10 w-32 h-32 bg-primary opacity-10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity"></div>
+<div class="w-12 h-12 rounded-lg bg-surface flex items-center justify-center mb-stack-md text-primary border border-border-subtle">
+<span class="material-symbols-outlined">language</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-stack-sm">Read in Your Language</h3>
+<p class="font-body-md text-body-md text-on-surface-muted">Built-in translation support and multi-language sources ensure you never miss a chapter.</p>
+</div></div>
+</section>
+<!-- Call to Action -->
+<section class="max-w-4xl mx-auto px-container-margin py-stack-xl text-center">
+<div class="bg-surface-container-high rounded-2xl p-stack-xl border border-border-subtle relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent"></div>
+<div class="relative z-10">
+<h2 class="font-headline-display text-headline-display text-on-surface mb-stack-md">Join the Night Owls</h2>
+<p class="font-body-lg text-body-lg text-on-surface-muted mb-stack-lg max-w-xl mx-auto">
+                        Elevate your manga experience today. Free, open-source, and built for the community.
+                    </p>
+<div class="flex flex-col sm:flex-row justify-center gap-stack-md">
+<button class="bg-primary text-on-primary font-label-lg text-label-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all">
+                            Download Now
+                        </button>
+
+<button class="bg-surface border border-border-subtle text-on-surface font-label-lg text-label-lg px-8 py-4 rounded-lg hover:bg-surface-container transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">volunteer_activism</span>
+Donate
+</button></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer from Shared Components -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest w-full py-stack-xl border-t border-border-subtle">
+<div class="flex flex-col md:flex-row justify-between items-center px-container-margin max-w-7xl mx-auto gap-stack-md">
+<div class="flex items-center gap-2">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface text-primary dark:text-primary">Totoro</span>
+</div>
+<div class="flex flex-wrap justify-center gap-stack-md text-on-surface-muted hover:text-on-surface opacity-80 hover:opacity-100 font-body-sm text-body-sm">
+<a class="hover:text-primary transition-colors text-primary" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">API Docs</a>
+<a class="hover:text-primary transition-colors" href="#">GitHub</a>
+<a class="hover:text-primary transition-colors" href="#">Discord</a>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-muted">
+                © 2024 Totoro Manga. Built for the night.
+            </div>
+</div>
+</footer>
+
+
+</body></html>
