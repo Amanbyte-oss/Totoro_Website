@@ -283,12 +283,12 @@
             font-size: 2rem;
         }
 
-        /* Mobile Nav Drawer */
         .mobile-drawer {
             position: fixed;
             top: 0;
             right: -320px;
-            width: 300px;
+            width: 280px;
+            max-width: 85vw;
             height: 100vh;
             background-color: var(--surface-low);
             border-left: 1px solid var(--border-subtle);
@@ -1009,6 +1009,151 @@
                 right: 20%;
                 top: 5%;
             }
+            .download-options-grid {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+            }
+            .support-alert {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 0.75rem;
+                padding: 1.25rem;
+            }
+            .alert-icon {
+                margin-top: 0;
+            }
+        }
+
+        /* Home page Download Section Grid & Cards */
+        .download-options-grid {
+            display: flex;
+            gap: 1.25rem;
+            width: 100%;
+            max-width: 900px;
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+            z-index: 2;
+        }
+
+        .download-card {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1.25rem;
+            background-color: var(--surface-low);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 2.25rem 1.5rem;
+            text-decoration: none;
+            color: var(--on-surface);
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .download-card:hover {
+            transform: translateY(-4px) scale(1.02);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px var(--primary-glow);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background-color: rgba(244, 162, 97, 0.1);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .download-card:hover .card-icon {
+            background-color: var(--primary);
+            color: var(--on-primary);
+        }
+
+        .card-details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.65rem;
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--on-surface);
+        }
+
+        .card-badge {
+            background-color: rgba(244, 162, 97, 0.15);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* Support alert box */
+        .support-alert {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.15rem;
+            background: linear-gradient(135deg, rgba(244, 162, 97, 0.05), rgba(231, 111, 81, 0.08));
+            border: 1px solid rgba(244, 162, 97, 0.2);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 20px rgba(244, 162, 97, 0.02);
+            z-index: 2;
+        }
+
+        .alert-icon {
+            font-size: 2.25rem;
+            color: var(--primary);
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        .alert-content strong {
+            display: block;
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 0.35rem;
+        }
+
+        .alert-content p {
+            font-size: 0.95rem;
+            color: var(--on-surface-muted);
+            line-height: 1.6;
+        }
+
+        /* Extra small mobile styles */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+            .hero-title {
+                font-size: 1.85rem;
+            }
+            .hero-subtitle {
+                font-size: 0.95rem;
+            }
+            .cta-card {
+                padding: 3rem 1rem;
+            }
         }
     </style>
 </head>
@@ -1030,7 +1175,7 @@
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
                 <li><a href="#library">Library</a></li>
-                <li><a href="download.html">Download</a></li>
+                <li><a href="#download">Download</a></li>
             </ul>
             
             <div class="nav-actions">
@@ -1041,7 +1186,7 @@
             </div>
         </div>
     </nav>
-
+ 
     <!-- Mobile Drawer Menu -->
     <div class="drawer-backdrop" id="drawer-backdrop"></div>
     <div class="mobile-drawer" id="mobile-drawer">
@@ -1059,7 +1204,7 @@
         <ul class="drawer-links">
             <li><a href="#features" class="drawer-link">Features</a></li>
             <li><a href="#library" class="drawer-link">Library</a></li>
-            <li><a href="download.html" class="drawer-link">Download</a></li>
+            <li><a href="#download" class="drawer-link">Download</a></li>
         </ul>
         <a href="donate.html" class="btn btn-primary drawer-link" style="margin-top: auto; width: 100%;">Donate</a>
     </div>
@@ -1074,10 +1219,10 @@
                     <h1 class="hero-title">Read Manga the Way It Was <span>Meant to Be.</span></h1>
                     <p class="hero-subtitle">Experience the ultimate dark mode reader. Ultra-fast, seamlessly synced, and designed specifically for the night owl manga enthusiast.</p>
                     <div class="hero-actions">
-                        <a href="download.html" class="btn btn-primary">Download Now</a>
-                        <a href="#features" class="btn btn-secondary">
-                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_circle</span>
-                            See it in action
+                        <a href="#download" class="btn btn-primary">Download Now</a>
+                        <a href="donate.html" class="btn btn-secondary">
+                            <span class="material-symbols-outlined" style="color: var(--primary);">volunteer_activism</span>
+                            Donate
                         </a>
                     </div>
                 </div>
@@ -1286,17 +1431,54 @@
             </div>
         </section>
 
-        <!-- Call to Action Section -->
+        <!-- Call to Action Section / Download Section -->
         <section class="cta" id="download">
             <div class="container">
                 <div class="cta-card reveal">
                     <h2 class="cta-title">Join the Night Owls</h2>
                     <p class="cta-desc">Elevate your manga experience today. Free, open-source, and built specifically for the community.</p>
-                    <div class="cta-actions">
-                        <a href="download.html" class="btn btn-primary">Download Now</a>
+                    
+                    <!-- Support Alert Box -->
+                    <div class="support-alert" style="max-width: 600px; text-align: left;">
+                        <span class="material-symbols-outlined alert-icon">volunteer_activism</span>
+                        <div class="alert-content">
+                            <strong>Support the Developer!</strong>
+                            <p>To support me and help maintain active development of Totoro, please consider downloading from one of the options below. These links help offset server and maintenance costs!</p>
+                        </div>
+                    </div>
+
+                    <!-- 3 Support Download Cards -->
+                    <div class="download-options-grid">
+                        <a href="https://www.up-4ever.net/uedo3uposzw2" class="download-card" target="_blank">
+                            <span class="material-symbols-outlined card-icon">cloud_download</span>
+                            <div class="card-details">
+                                <span class="card-title">UP4EVER</span>
+                                <span class="card-badge">Support Option 1</span>
+                            </div>
+                        </a>
+
+                        <a href="https://aii.sh/MusEze5" class="download-card" target="_blank">
+                            <span class="material-symbols-outlined card-icon">link</span>
+                            <div class="card-details">
+                                <span class="card-title">ShrinkBixaby</span>
+                                <span class="card-badge">Support Option 2</span>
+                            </div>
+                        </a>
+
+                        <a href="https://ouo.io/DQajoNc" class="download-card" target="_blank">
+                            <span class="material-symbols-outlined card-icon">bolt</span>
+                            <div class="card-details">
+                                <span class="card-title">Ouo.io</span>
+                                <span class="card-badge">Support Option 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Donate Link -->
+                    <div style="margin-top: 1rem; z-index: 2;">
                         <a href="donate.html" class="btn btn-secondary">
                             <span class="material-symbols-outlined" style="color: var(--primary);">volunteer_activism</span>
-                            Donate
+                            Donate Directly
                         </a>
                     </div>
                 </div>
