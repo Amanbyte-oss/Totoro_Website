@@ -1,59 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Totoro - Read Manga the Way It Was Meant to Be.</title>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
     <!-- Material Symbols -->
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+
     <style>
         :root {
             /* Color System - Night Theme */
             --bg-start: #0f1729;
             --bg-end: #1a1f35;
-            
+
             --surface-lowest: #060e20;
             --surface-low: #131b2e;
             --surface: #0b1326;
             --surface-container: #171f33;
             --surface-container-high: #222a3d;
             --surface-container-highest: #2d3449;
-            
+
             --on-surface: #f8fafc;
             --on-surface-variant: #ddc1b1;
             --on-surface-muted: #94a3b8;
-            
-            --primary: #f4a261; /* Soft peach / salmon */
+
+            --primary: #f4a261;
+            /* Soft peach / salmon */
             --primary-hover: #e76f51;
             --primary-glow: rgba(244, 162, 97, 0.25);
             --on-primary: #0b1326;
-            
+
             --border-subtle: #1e293b;
             --outline: #a58c7d;
-            
+
             /* Typography */
             --font-heading: 'Manrope', sans-serif;
             --font-body: 'Inter', sans-serif;
-            
+
             /* Shapes */
             --radius-sm: 8px;
             --radius-md: 12px;
             --radius-lg: 16px;
             --radius-full: 9999px;
-            
+
             /* Animation timing */
             --transition-smooth: 0.3s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         /* Base Resets */
-        *, *::before, *::after {
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -77,14 +84,17 @@
         ::-webkit-scrollbar {
             width: 8px;
         }
+
         ::-webkit-scrollbar-track {
             background: var(--bg-start);
         }
+
         ::-webkit-scrollbar-thumb {
             background: var(--surface-container-high);
             border-radius: var(--radius-full);
             border: 2px solid var(--bg-start);
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background: var(--primary);
         }
@@ -101,6 +111,7 @@
         .cursor-follower {
             display: none;
         }
+
         @media (pointer: fine) {
             .cursor-follower {
                 display: block;
@@ -118,6 +129,7 @@
                 transform: translate(-50%, -50%);
                 transition: width var(--transition-smooth), height var(--transition-smooth), opacity var(--transition-smooth), background-color var(--transition-smooth);
             }
+
             .cursor-follower.hovering {
                 width: 48px;
                 height: 48px;
@@ -143,9 +155,11 @@
             transition: transform 0.25s var(--transition-smooth), box-shadow 0.25s var(--transition-smooth), background-color 0.25s, border-color 0.25s, color 0.25s;
             white-space: nowrap;
         }
+
         .btn:hover {
             transform: translateY(-2px) scale(1.03);
         }
+
         .btn:active {
             transform: translateY(0) scale(1);
         }
@@ -156,6 +170,7 @@
             border: none;
             box-shadow: 0 0 15px var(--primary-glow);
         }
+
         .btn-primary:hover {
             background-color: var(--primary-hover);
             box-shadow: 0 0 25px rgba(244, 162, 97, 0.45);
@@ -166,6 +181,7 @@
             color: var(--on-surface);
             border: 2px solid rgba(255, 255, 255, 0.25);
         }
+
         .btn-outline:hover {
             border-color: var(--primary);
             color: var(--primary);
@@ -177,6 +193,7 @@
             color: var(--on-surface);
             border: 1px solid var(--border-subtle);
         }
+
         .btn-secondary:hover {
             background-color: var(--surface-container-high);
             border-color: var(--primary);
@@ -217,9 +234,11 @@
             text-decoration: none;
             transition: transform 0.3s;
         }
+
         .logo:hover {
             transform: scale(1.05);
         }
+
         .logo svg {
             fill: var(--primary);
             width: 24px;
@@ -297,7 +316,7 @@
             display: flex;
             flex-direction: column;
             gap: 2.5rem;
-            box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
             transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -336,7 +355,7 @@
             font-weight: 500;
             padding: 0.5rem 0;
             display: block;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             transition: color 0.2s;
         }
 
@@ -464,18 +483,24 @@
 
         /* ANIMATIONS */
         @keyframes floatTotoro {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0);
             }
+
             50% {
                 transform: translateY(-12px);
             }
         }
 
         @keyframes floatSoot {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0) rotate(0deg);
             }
+
             50% {
                 transform: translateY(-10px) rotate(15deg);
             }
@@ -552,6 +577,7 @@
             0% {
                 transform: translateX(0);
             }
+
             100% {
                 transform: translateX(-50%);
             }
@@ -604,7 +630,8 @@
             position: relative;
         }
 
-        .partners::before, .partners::after {
+        .partners::before,
+        .partners::after {
             content: '';
             position: absolute;
             top: 0;
@@ -613,10 +640,12 @@
             z-index: 3;
             pointer-events: none;
         }
+
         .partners::before {
             left: 0;
             background: linear-gradient(to right, #0f1729, transparent);
         }
+
         .partners::after {
             right: 0;
             background: linear-gradient(to left, #0f1729, transparent);
@@ -636,6 +665,7 @@
             0% {
                 transform: translateX(0);
             }
+
             100% {
                 transform: translateX(-50%);
             }
@@ -911,12 +941,13 @@
         }
 
         /* RESPONSIVE DESIGN - BREAKPOINTS */
-        
+
         /* Desktop Small / Tablet Landscape */
         @media (max-width: 1200px) {
             .hero-title {
                 font-size: 3rem;
             }
+
             .features-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 1.5rem;
@@ -930,18 +961,23 @@
                 text-align: center;
                 gap: 3.5rem;
             }
+
             .hero-content {
                 align-items: center;
             }
+
             .hero-subtitle {
                 margin: 0 auto;
             }
+
             .hero-actions {
                 justify-content: center;
             }
+
             .hero-illustration-container {
                 order: -1;
             }
+
             .soot-sprite {
                 right: 25%;
                 top: 10%;
@@ -953,67 +989,88 @@
             .navbar {
                 padding: 1rem 0;
             }
-            .nav-links, .nav-actions .btn-outline {
+
+            .nav-links,
+            .nav-actions .btn-outline {
                 display: none;
             }
+
             .hamburger {
                 display: block;
             }
+
             .hero {
                 padding: 7.5rem 0 4rem 0;
             }
+
             .hero-title {
                 font-size: 2.25rem;
             }
+
             .hero-subtitle {
                 font-size: 1rem;
             }
+
             .hero-actions {
                 flex-direction: column;
                 width: 100%;
                 max-width: 320px;
             }
+
             .hero-actions .btn {
                 width: 100%;
             }
-            .showcase-title, .features-title, .cta-title {
+
+            .showcase-title,
+            .features-title,
+            .cta-title {
                 font-size: 1.85rem;
             }
+
             .features-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
+
             .feature-card {
                 padding: 2rem 1.5rem;
             }
+
             .cta-card {
                 padding: 4rem 1.5rem;
             }
+
             .cta-actions {
                 flex-direction: column;
                 width: 100%;
                 max-width: 320px;
             }
+
             .cta-actions .btn {
                 width: 100%;
             }
+
             .footer-grid {
                 flex-direction: column;
                 text-align: center;
                 gap: 1.5rem;
             }
+
             .footer-links {
                 gap: 1rem 1.5rem;
             }
+
             .soot-sprite {
                 right: 20%;
                 top: 5%;
             }
+
             .download-options-grid {
                 flex-direction: column;
                 gap: 1rem;
                 width: 100%;
             }
+
             .support-alert {
                 flex-direction: column;
                 align-items: center;
@@ -1021,6 +1078,7 @@
                 gap: 0.75rem;
                 padding: 1.25rem;
             }
+
             .alert-icon {
                 margin-top: 0;
             }
@@ -1145,18 +1203,22 @@
             .container {
                 padding: 0 1rem;
             }
+
             .hero-title {
                 font-size: 1.85rem;
             }
+
             .hero-subtitle {
                 font-size: 0.95rem;
             }
+
             .cta-card {
                 padding: 3rem 1rem;
             }
         }
     </style>
 </head>
+
 <body>
 
     <!-- Custom Cursor Follower -->
@@ -1167,17 +1229,18 @@
         <div class="container">
             <a href="#" class="logo">
                 <svg viewBox="0 0 24 24">
-                    <path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L7.33,18C12,18 21,15 22,2C22,2 14.5,3 9.5,8.5C11.5,7 14.3,6.62 17,8Z"/>
+                    <path
+                        d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L7.33,18C12,18 21,15 22,2C22,2 14.5,3 9.5,8.5C11.5,7 14.3,6.62 17,8Z" />
                 </svg>
                 <span>Totoro</span>
             </a>
-            
+
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
                 <li><a href="#library">Library</a></li>
                 <li><a href="#download">Download</a></li>
             </ul>
-            
+
             <div class="nav-actions">
                 <a href="donate.html" class="btn btn-outline">Donate</a>
                 <button class="hamburger" id="hamburger-btn">
@@ -1186,14 +1249,15 @@
             </div>
         </div>
     </nav>
- 
+
     <!-- Mobile Drawer Menu -->
     <div class="drawer-backdrop" id="drawer-backdrop"></div>
     <div class="mobile-drawer" id="mobile-drawer">
         <div class="drawer-header">
             <a href="#" class="logo">
                 <svg viewBox="0 0 24 24">
-                    <path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L7.33,18C12,18 21,15 22,2C22,2 14.5,3 9.5,8.5C11.5,7 14.3,6.62 17,8Z"/>
+                    <path
+                        d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L7.33,18C12,18 21,15 22,2C22,2 14.5,3 9.5,8.5C11.5,7 14.3,6.62 17,8Z" />
                 </svg>
                 <span>Totoro</span>
             </a>
@@ -1211,54 +1275,63 @@
 
     <!-- Main Content Area -->
     <main>
-        
+
         <!-- Hero Section -->
         <section class="hero">
             <div class="container hero-grid">
                 <div class="hero-content reveal">
                     <h1 class="hero-title">Read Manga the Way It Was <span>Meant to Be.</span></h1>
-                    <p class="hero-subtitle">Experience the ultimate dark mode reader. Ultra-fast, seamlessly synced, and designed specifically for the night owl manga enthusiast.</p>
+                    <p class="hero-subtitle">Experience the ultimate dark mode reader. Ultra-fast, seamlessly synced,
+                        and designed specifically for the night owl manga enthusiast.</p>
                     <div class="hero-actions">
                         <a href="#download" class="btn btn-primary">Download Now</a>
                         <a href="donate.html" class="btn btn-secondary">
-                            <span class="material-symbols-outlined" style="color: var(--primary);">volunteer_activism</span>
+                            <span class="material-symbols-outlined"
+                                style="color: var(--primary);">volunteer_activism</span>
                             Donate
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="hero-illustration-container reveal" style="transition-delay: 0.15s;">
                     <div class="hero-glow-bg"></div>
-                    
+
                     <!-- Cute Animated Soot Sprite Floating Nearby -->
                     <div class="soot-sprite">
                         <svg width="48" height="48" viewBox="0 0 40 40">
                             <!-- Spikes -->
-                            <path d="M 20 2 L 20 6 M 20 34 L 20 38 M 2 20 L 6 20 M 34 20 L 38 20 M 7 7 L 11 11 M 29 29 L 33 33 M 7 33 L 11 29 M 29 7 L 33 11 M 12 4 L 14 8 M 28 32 L 26 36 M 4 12 L 8 14 M 32 26 L 36 28 M 4 28 L 8 26 M 32 12 L 36 14 M 12 36 L 14 32 M 28 4 L 26 8" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+                            <path
+                                d="M 20 2 L 20 6 M 20 34 L 20 38 M 2 20 L 6 20 M 34 20 L 38 20 M 7 7 L 11 11 M 29 29 L 33 33 M 7 33 L 11 29 M 29 7 L 33 11 M 12 4 L 14 8 M 28 32 L 26 36 M 4 12 L 8 14 M 32 26 L 36 28 M 4 28 L 8 26 M 32 12 L 36 14 M 12 36 L 14 32 M 28 4 L 26 8"
+                                stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
                             <!-- Fuzzy body -->
-                            <circle cx="20" cy="20" r="14" fill="#000000" stroke="#ffffff" stroke-width="2.5"/>
+                            <circle cx="20" cy="20" r="14" fill="#000000" stroke="#ffffff" stroke-width="2.5" />
                             <!-- Eyes -->
-                            <circle cx="15" cy="18" r="4.5" fill="#ffffff"/>
-                            <circle cx="25" cy="18" r="4.5" fill="#ffffff"/>
+                            <circle cx="15" cy="18" r="4.5" fill="#ffffff" />
+                            <circle cx="25" cy="18" r="4.5" fill="#ffffff" />
                             <!-- Pupils -->
-                            <circle cx="15" cy="18" r="1.5" fill="#000000"/>
-                            <circle cx="25" cy="18" r="1.5" fill="#000000"/>
+                            <circle cx="15" cy="18" r="1.5" fill="#000000" />
+                            <circle cx="25" cy="18" r="1.5" fill="#000000" />
                         </svg>
                     </div>
-                    
+
                     <!-- Totoro Illustration reading a book -->
-                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx3Y4tp0Ne1XqmS4ttfmnGRIWxb7BXTv2iWiJmd_o7vMpbeKSL44ln0DnXT_dPljuzPoRm02kE_hl2K6ByBRsLe8_9_MnHBs8hsi421smjazgtK3w7LhH-mIgCBNWz45xzpxtHzfewvWo3MLae2IfQjUxzYIgukHyH5cN5E_R4qHMpJnBnSSIBt8jXnIiOrbdyIb3_4styq_y3J5m7Bj1IyvBsOEp31HOzQMR6sVJ6nQ457sjlXfgT2Ah34jGIfWyWbw" alt="Totoro reading book" class="hero-image">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx3Y4tp0Ne1XqmS4ttfmnGRIWxb7BXTv2iWiJmd_o7vMpbeKSL44ln0DnXT_dPljuzPoRm02kE_hl2K6ByBRsLe8_9_MnHBs8hsi421smjazgtK3w7LhH-mIgCBNWz45xzpxtHzfewvWo3MLae2IfQjUxzYIgukHyH5cN5E_R4qHMpJnBnSSIBt8jXnIiOrbdyIb3_4styq_y3J5m7Bj1IyvBsOEp31HOzQMR6sVJ6nQ457sjlXfgT2Ah34jGIfWyWbw"
+                        alt="Totoro reading book" class="hero-image">
                 </div>
         </section>
 
         <!-- Advertisement Banner (Hero Bottom) -->
-        <div style="width: 100%; max-width: 728px; margin: 1.5rem auto; padding: 1rem; background: rgba(19, 27, 46, 0.4); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; position: relative; z-index: 5; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); box-sizing: border-box;">
-            <div style="font-family: var(--font-body); font-size: 0.7rem; color: var(--on-surface-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">Sponsored Link</div>
-            
+        <div
+            style="width: 100%; max-width: 728px; margin: 1.5rem auto; padding: 1rem; background: rgba(19, 27, 46, 0.4); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; position: relative; z-index: 5; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); box-sizing: border-box;">
+            <div
+                style="font-family: var(--font-body); font-size: 0.7rem; color: var(--on-surface-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">
+                Sponsored Link</div>
+
             <!-- BEGIN AADS AD UNIT 2451446 -->
-            <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99998; box-sizing: border-box;">
+            <div id="frame"
+                style="width: 100%; margin: auto; position: relative; z-index: 99998; box-sizing: border-box;">
                 <iframe data-aa='2451446' src='//acceptable.a-ads.com/2451446/?size=Adaptive'
-                                  style='border:0; padding:0; width:100%; height:110px; overflow:hidden; display: block; margin: auto;'></iframe>
+                    style='border:0; padding:0; width:100%; height:110px; overflow:hidden; display: block; margin: auto;'></iframe>
             </div>
             <!-- END AADS AD UNIT 2451446 -->
         </div>
@@ -1266,62 +1339,78 @@
         <!-- Interactive Screenshots Carousel Section -->
         <section class="showcase" id="library">
             <h2 class="showcase-title reveal">A Native, Immersive Experience</h2>
-            
+
             <div class="carousel-wrapper">
                 <div class="carousel-fade carousel-fade-left"></div>
                 <div class="carousel-fade carousel-fade-right"></div>
-                
+
                 <div class="marquee">
                     <!-- Set 1 (8 images) -->
                     <div class="screenshot-card">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB548vibJTKGorduC785JwiIIgzzgHl8Ie4nTNFGzaZEgHhuafPOe41WLsq8geR4m6vphV_hv_cTTI8p8pAyN8ehpypljiX7KJVm-QHqh5vaAQhtjdOqzxLpPnqy41RP7QdtBqFaQq2_j-wsl0TFLoAsrl00tOKqo44QWQzHaynPuoZQ2lWBPiiSCFSVegH6q_Fc9sJVLYTW0Qn8Ama3PIHPJHkpk-u7-60aCtehEmW2oT_vhn4U_EFWr0kBA1Nmex3bg" alt="App Screenshot 1" class="screenshot-img">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB548vibJTKGorduC785JwiIIgzzgHl8Ie4nTNFGzaZEgHhuafPOe41WLsq8geR4m6vphV_hv_cTTI8p8pAyN8ehpypljiX7KJVm-QHqh5vaAQhtjdOqzxLpPnqy41RP7QdtBqFaQq2_j-wsl0TFLoAsrl00tOKqo44QWQzHaynPuoZQ2lWBPiiSCFSVegH6q_Fc9sJVLYTW0Qn8Ama3PIHPJHkpk-u7-60aCtehEmW2oT_vhn4U_EFWr0kBA1Nmex3bg"
+                            alt="App Screenshot 1" class="screenshot-img">
                     </div>
                     <div class="screenshot-card">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVFOIyT_vndTbdMOXlt-FzaKslpHGX0YZHjEZlu7JoBdGl8wfzOfOf1ip0r5XgGUUJSsGeNG-mq-lVaemuttiw2JukUKm6beSv2JqZVAn_jK26_Tm8hufCt8F4doPJK78RdryWnKsS3vsHbuTDcot-CRY8OTTkVCI-aT_bo5XtUlRmiGh_XG1gsnWbiP2eWxEzO3ShBr8zTAf9rtP3If-Gj4qBNU72p9squvKEOLljrXRr3-b-bQ-dDBIZhbvV-mH1mg" alt="App Screenshot 2" class="screenshot-img">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVFOIyT_vndTbdMOXlt-FzaKslpHGX0YZHjEZlu7JoBdGl8wfzOfOf1ip0r5XgGUUJSsGeNG-mq-lVaemuttiw2JukUKm6beSv2JqZVAn_jK26_Tm8hufCt8F4doPJK78RdryWnKsS3vsHbuTDcot-CRY8OTTkVCI-aT_bo5XtUlRmiGh_XG1gsnWbiP2eWxEzO3ShBr8zTAf9rtP3If-Gj4qBNU72p9squvKEOLljrXRr3-b-bQ-dDBIZhbvV-mH1mg"
+                            alt="App Screenshot 2" class="screenshot-img">
                     </div>
                     <div class="screenshot-card">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqXViZZZ2WgZ1Ue2cv8QJkagyIaAH5oF8htAGJ8LOlayVnwtLQp807aRyy3fWMyK8ELlm8T1_H4P8YTdhOE-_duDNM0oIGSIKlc3Yv4ueh_cVIn9MDzTkLDhVwK-EsA3s5Xhdio1VvANqc1KYnK6RAsAG_OUcn0crZkK8ZHUu-LcZl0ZtSRuiSCzP1ehGebleXBOUZq6HDpnmSqBBHL-5c94EqUy1MegWGUoFtfMvUD9kGnQOW7Hj3ZzP4iCYQP4YI3Q" alt="App Screenshot 3" class="screenshot-img">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqXViZZZ2WgZ1Ue2cv8QJkagyIaAH5oF8htAGJ8LOlayVnwtLQp807aRyy3fWMyK8ELlm8T1_H4P8YTdhOE-_duDNM0oIGSIKlc3Yv4ueh_cVIn9MDzTkLDhVwK-EsA3s5Xhdio1VvANqc1KYnK6RAsAG_OUcn0crZkK8ZHUu-LcZl0ZtSRuiSCzP1ehGebleXBOUZq6HDpnmSqBBHL-5c94EqUy1MegWGUoFtfMvUD9kGnQOW7Hj3ZzP4iCYQP4YI3Q"
+                            alt="App Screenshot 3" class="screenshot-img">
                     </div>
                     <div class="screenshot-card">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfezZTsidxYnyMlUPeJXuOIOPHEVCnT38xYXdcMH7lx8jjGtg15FJ3k1lT1QgE9sQv97YQXRKbaxBnn_0oHj6VZS63q241Ns2l82WoPLyzSym7U1UOCpUBDGaOGVDH1zPUvDdM5uKWIqKFXUg2VNRiyJQZWEAYobUxolkos35qAiUw04fPheF4zqfWBSxMzPDGJxa2QCzEB5vdmnklKIaYN1S5c219zbcZXPduyTBF5o_rz8DArVTplydHxggWiAfI3Q" alt="App Screenshot 4" class="screenshot-img">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfezZTsidxYnyMlUPeJXuOIOPHEVCnT38xYXdcMH7lx8jjGtg15FJ3k1lT1QgE9sQv97YQXRKbaxBnn_0oHj6VZS63q241Ns2l82WoPLyzSym7U1UOCpUBDGaOGVDH1zPUvDdM5uKWIqKFXUg2VNRiyJQZWEAYobUxolkos35qAiUw04fPheF4zqfWBSxMzPDGJxa2QCzEB5vdmnklKIaYN1S5c219zbcZXPduyTBF5o_rz8DArVTplydHxggWiAfI3Q"
+                            alt="App Screenshot 4" class="screenshot-img">
                     </div>
                     <div class="screenshot-card">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH49tNQyRk91E0YFcYFPpPXN3Ke9XvCQZPjGjC8sKwrsxL4wq8QwurF9v_2y5gbi7sjDWm_exz_ALNMPbGFSYCU9hs8gWWvpWiCINs4UJmjnqyxZvMWghZ2AKubflD8isZ2eyECGX_9jtTTDzE-LXXQ9MprNyIkSZhFVTyvBVVz8OSS4kjeBvLVqeZjHkts48kzSVAvE7bTBRXix5aMYp3Xujr2XwWx0QAE7vauTTDZhwuYZUhcRRpdpyoLwWY5St-iA" alt="App Screenshot 5" class="screenshot-img">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH49tNQyRk91E0YFcYFPpPXN3Ke9XvCQZPjGjC8sKwrsxL4wq8QwurF9v_2y5gbi7sjDWm_exz_ALNMPbGFSYCU9hs8gWWvpWiCINs4UJmjnqyxZvMWghZ2AKubflD8isZ2eyECGX_9jtTTDzE-LXXQ9MprNyIkSZhFVTyvBVVz8OSS4kjeBvLVqeZjHkts48kzSVAvE7bTBRXix5aMYp3Xujr2XwWx0QAE7vauTTDZhwuYZUhcRRpdpyoLwWY5St-iA"
+                            alt="App Screenshot 5" class="screenshot-img">
                     </div>
                     <div class="screenshot-card">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdhgk0LtkK0T_HPEXefMP3_VKqbceYyJEloR8TNU16tUBEzx2wgzzBy7cpG3HpY00wR2R0pOKDCaQFGzdQ2w1Y9hiqgPTNeVza2IwbngVkZFBMRsRe_4m0LVujigK036n75SEv4NUrVmENfjcz7JlFoAYVuht-gMpX5IqRgzFmUlw0p_UXN9Y5UQFGqm1yWSOxNrxKnGJLGbudlz4R_owppSiOcworFEjX6eyONPnBmx9b57ZVx4b53y8QVXCYu6rfdw" alt="App Screenshot 6" class="screenshot-img">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdhgk0LtkK0T_HPEXefMP3_VKqbceYyJEloR8TNU16tUBEzx2wgzzBy7cpG3HpY00wR2R0pOKDCaQFGzdQ2w1Y9hiqgPTNeVza2IwbngVkZFBMRsRe_4m0LVujigK036n75SEv4NUrVmENfjcz7JlFoAYVuht-gMpX5IqRgzFmUlw0p_UXN9Y5UQFGqm1yWSOxNrxKnGJLGbudlz4R_owppSiOcworFEjX6eyONPnBmx9b57ZVx4b53y8QVXCYu6rfdw"
+                            alt="App Screenshot 6" class="screenshot-img">
                     </div>
                     <div class="screenshot-card">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuKXUMIlp09qYs8r9R5DkSDzY2Qqp-bVHIYFF06thu1DpC_EW64JSlUAce_FrftZqJRuyE3ZjOOl4WgmXEAaD_qEMQ-7uCDDJuejqMOQMwkcIPl9lE1XQ5jr02_qqesb5s59K-Q9PzCI77_EnKPl2NHVEYHGMmHiVVVqFDXcKkee7vPZgXs4Btx8I9onN8xZs2lIIl7NdudneJa4VrxzHl_56_tTzOPzQWeR7BFP78fizWHehhwLSdM1BwhQ3zOydSLg" alt="App Screenshot 7" class="screenshot-img">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuKXUMIlp09qYs8r9R5DkSDzY2Qqp-bVHIYFF06thu1DpC_EW64JSlUAce_FrftZqJRuyE3ZjOOl4WgmXEAaD_qEMQ-7uCDDJuejqMOQMwkcIPl9lE1XQ5jr02_qqesb5s59K-Q9PzCI77_EnKPl2NHVEYHGMmHiVVVqFDXcKkee7vPZgXs4Btx8I9onN8xZs2lIIl7NdudneJa4VrxzHl_56_tTzOPzQWeR7BFP78fizWHehhwLSdM1BwhQ3zOydSLg"
+                            alt="App Screenshot 7" class="screenshot-img">
                     </div>
                     <div class="screenshot-card">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdiaBp-VlGW8bc0FKxO1qGJl_QDYd5jAB2VeWjyfWoFSay-WIqolFn-JkhXTfftclt4HY2rzD4w70hTmCEgvUGYr5WLWKDzU-8K6n03FuCW2tUTcvQviuUK6eJW9rhNHxUNzhW0zS-xwkSBsiwams9qKJLBHtWnnDvVzwILiEg0G12Ceq0wRhKsPIyeDjCMN8q6eH2TjA4vlVp5L33R0ubej_tVToikfX8nywwWt0itL3MBnHTsd69PEtDqVFKG2jO_A" alt="App Screenshot 8" class="screenshot-img">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdiaBp-VlGW8bc0FKxO1qGJl_QDYd5jAB2VeWjyfWoFSay-WIqolFn-JkhXTfftclt4HY2rzD4w70hTmCEgvUGYr5WLWKDzU-8K6n03FuCW2tUTcvQviuUK6eJW9rhNHxUNzhW0zS-xwkSBsiwams9qKJLBHtWnnDvVzwILiEg0G12Ceq0wRhKsPIyeDjCMN8q6eH2TjA4vlVp5L33R0ubej_tVToikfX8nywwWt0itL3MBnHTsd69PEtDqVFKG2jO_A"
+                            alt="App Screenshot 8" class="screenshot-img">
                     </div>
-                    
+
                     <!-- Set 2 for seamless loop -->
                     <div class="screenshot-card">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB548vibJTKGorduC785JwiIIgzzgHl8Ie4nTNFGzaZEgHhuafPOe41WLsq8geR4m6vphV_hv_cTTI8p8pAyN8ehpypljiX7KJVm-QHqh5vaAQhtjdOqzxLpPnqy41RP7QdtBqFaQq2_j-wsl0TFLoAsrl00tOKqo44QWQzHaynPuoZQ2lWBPiiSCFSVegH6q_Fc9sJVLYTW0Qn8Ama3PIHPJHkpk-u7-60aCtehEmW2oT_vhn4U_EFWr0kBA1Nmex3bg" alt="App Screenshot 1" class="screenshot-img">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB548vibJTKGorduC785JwiIIgzzgHl8Ie4nTNFGzaZEgHhuafPOe41WLsq8geR4m6vphV_hv_cTTI8p8pAyN8ehpypljiX7KJVm-QHqh5vaAQhtjdOqzxLpPnqy41RP7QdtBqFaQq2_j-wsl0TFLoAsrl00tOKqo44QWQzHaynPuoZQ2lWBPiiSCFSVegH6q_Fc9sJVLYTW0Qn8Ama3PIHPJHkpk-u7-60aCtehEmW2oT_vhn4U_EFWr0kBA1Nmex3bg"
+                            alt="App Screenshot 1" class="screenshot-img">
                     </div>
                     <div class="screenshot-card">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVFOIyT_vndTbdMOXlt-FzaKslpHGX0YZHjEZlu7JoBdGl8wfzOfOf1ip0r5XgGUUJSsGeNG-mq-lVaemuttiw2JukUKm6beSv2JqZVAn_jK26_Tm8hufCt8F4doPJK78RdryWnKsS3vsHbuTDcot-CRY8OTTkVCI-aT_bo5XtUlRmiGh_XG1gsnWbiP2eWxEzO3ShBr8zTAf9rtP3If-Gj4qBNU72p9squvKEOLljrXRr3-b-bQ-dDBIZhbvV-mH1mg" alt="App Screenshot 2" class="screenshot-img">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVFOIyT_vndTbdMOXlt-FzaKslpHGX0YZHjEZlu7JoBdGl8wfzOfOf1ip0r5XgGUUJSsGeNG-mq-lVaemuttiw2JukUKm6beSv2JqZVAn_jK26_Tm8hufCt8F4doPJK78RdryWnKsS3vsHbuTDcot-CRY8OTTkVCI-aT_bo5XtUlRmiGh_XG1gsnWbiP2eWxEzO3ShBr8zTAf9rtP3If-Gj4qBNU72p9squvKEOLljrXRr3-b-bQ-dDBIZhbvV-mH1mg"
+                            alt="App Screenshot 2" class="screenshot-img">
                     </div>
                     <div class="screenshot-card">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqXViZZZ2WgZ1Ue2cv8QJkagyIaAH5oF8htAGJ8LOlayVnwtLQp807aRyy3fWMyK8ELlm8T1_H4P8YTdhOE-_duDNM0oIGSIKlc3Yv4ueh_cVIn9MDzTkLDhVwK-EsA3s5Xhdio1VvANqc1KYnK6RAsAG_OUcn0crZkK8ZHUu-LcZl0ZtSRuiSCzP1ehGebleXBOUZq6HDpnmSqBBHL-5c94EqUy1MegWGUoFtfMvUD9kGnQOW7Hj3ZzP4iCYQP4YI3Q" alt="App Screenshot 3" class="screenshot-img">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqXViZZZ2WgZ1Ue2cv8QJkagyIaAH5oF8htAGJ8LOlayVnwtLQp807aRyy3fWMyK8ELlm8T1_H4P8YTdhOE-_duDNM0oIGSIKlc3Yv4ueh_cVIn9MDzTkLDhVwK-EsA3s5Xhdio1VvANqc1KYnK6RAsAG_OUcn0crZkK8ZHUu-LcZl0ZtSRuiSCzP1ehGebleXBOUZq6HDpnmSqBBHL-5c94EqUy1MegWGUoFtfMvUD9kGnQOW7Hj3ZzP4iCYQP4YI3Q"
+                            alt="App Screenshot 3" class="screenshot-img">
                     </div>
                     <div class="screenshot-card">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfezZTsidxYnyMlUPeJXuOIOPHEVCnT38xYXdcMH7lx8jjGtg15FJ3k1lT1QgE9sQv97YQXRKbaxBnn_0oHj6VZS63q241Ns2l82WoPLyzSym7U1UOCpUBDGaOGVDH1zPUvDdM5uKWIqKFXUg2VNRiyJQZWEAYobUxolkos35qAiUw04fPheF4zqfWBSxMzPDGJxa2QCzEB5vdmnklKIaYN1S5c219zbcZXPduyTBF5o_rz8DArVTplydHxggWiAfI3Q" alt="App Screenshot 4" class="screenshot-img">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfezZTsidxYnyMlUPeJXuOIOPHEVCnT38xYXdcMH7lx8jjGtg15FJ3k1lT1QgE9sQv97YQXRKbaxBnn_0oHj6VZS63q241Ns2l82WoPLyzSym7U1UOCpUBDGaOGVDH1zPUvDdM5uKWIqKFXUg2VNRiyJQZWEAYobUxolkos35qAiUw04fPheF4zqfWBSxMzPDGJxa2QCzEB5vdmnklKIaYN1S5c219zbcZXPduyTBF5o_rz8DArVTplydHxggWiAfI3Q"
+                            alt="App Screenshot 4" class="screenshot-img">
                     </div>
                     <div class="screenshot-card">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH49tNQyRk91E0YFcYFPpPXN3Ke9XvCQZPjGjC8sKwrsxL4wq8QwurF9v_2y5gbi7sjDWm_exz_ALNMPbGFSYCU9hs8gWWvpWiCINs4UJmjnqyxZvMWghZ2AKubflD8isZ2eyECGX_9jtTTDzE-LXXQ9MprNyIkSZhFVTyvBVVz8OSS4kjeBvLVqeZjHkts48kzSVAvE7bTBRXix5aMYp3Xujr2XwWx0QAE7vauTTDZhwuYZUhcRRpdpyoLwWY5St-iA" alt="App Screenshot 5" class="screenshot-img">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH49tNQyRk91E0YFcYFPpPXN3Ke9XvCQZPjGjC8sKwrsxL4wq8QwurF9v_2y5gbi7sjDWm_exz_ALNMPbGFSYCU9hs8gWWvpWiCINs4UJmjnqyxZvMWghZ2AKubflD8isZ2eyECGX_9jtTTDzE-LXXQ9MprNyIkSZhFVTyvBVVz8OSS4kjeBvLVqeZjHkts48kzSVAvE7bTBRXix5aMYp3Xujr2XwWx0QAE7vauTTDZhwuYZUhcRRpdpyoLwWY5St-iA"
+                            alt="App Screenshot 5" class="screenshot-img">
                     </div>
                     <div class="screenshot-card">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdhgk0LtkK0T_HPEXefMP3_VKqbceYyJEloR8TNU16tUBEzx2wgzzBy7cpG3HpY00wR2R0pOKDCaQFGzdQ2w1Y9hiqgPTNeVza2IwbngVkZFBMRsRe_4m0LVujigK036n75SEv4NUrVmENfjcz7JlFoAYVuht-gMpX5IqRgzFmUlw0p_UXN9Y5UQFGqm1yWSOxNrxKnGJLGbudlz4R_owppSiOcworFEjX6eyONPnBmx9b57ZVx4b53y8QVXCYu6rfdw" alt="App Screenshot 6" class="screenshot-img">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdhgk0LtkK0T_HPEXefMP3_VKqbceYyJEloR8TNU16tUBEzx2wgzzBy7cpG3HpY00wR2R0pOKDCaQFGzdQ2w1Y9hiqgPTNeVza2IwbngVkZFBMRsRe_4m0LVujigK036n75SEv4NUrVmENfjcz7JlFoAYVuht-gMpX5IqRgzFmUlw0p_UXN9Y5UQFGqm1yWSOxNrxKnGJLGbudlz4R_owppSiOcworFEjX6eyONPnBmx9b57ZVx4b53y8QVXCYu6rfdw"
+                            alt="App Screenshot 6" class="screenshot-img">
                     </div>
                     <div class="screenshot-card">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuKXUMIlp09qYs8r9R5DkSDzY2Qqp-bVHIYFF06thu1DpC_EW64JSlUAce_FrftZqJRuyE3ZjOOl4WgmXEAaD_qEMQ-7uCDDJuejqMOQMwkcIPl9lE1XQ5jr02_qqesb5s59K-Q9PzCI77_EnKPl2NHVEYHGMmHiVVVqFDXcKkee7vPZgXs4Btx8I9onN8xZs2lIIl7NdudneJa4VrxzHl_56_tTzOPzQWeR7BFP78fizWHehhwLSdM1BwhQ3zOydSLg" alt="App Screenshot 7" class="screenshot-img">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuKXUMIlp09qYs8r9R5DkSDzY2Qqp-bVHIYFF06thu1DpC_EW64JSlUAce_FrftZqJRuyE3ZjOOl4WgmXEAaD_qEMQ-7uCDDJuejqMOQMwkcIPl9lE1XQ5jr02_qqesb5s59K-Q9PzCI77_EnKPl2NHVEYHGMmHiVVVqFDXcKkee7vPZgXs4Btx8I9onN8xZs2lIIl7NdudneJa4VrxzHl_56_tTzOPzQWeR7BFP78fizWHehhwLSdM1BwhQ3zOydSLg"
+                            alt="App Screenshot 7" class="screenshot-img">
                     </div>
                     <div class="screenshot-card">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdiaBp-VlGW8bc0FKxO1qGJl_QDYd5jAB2VeWjyfWoFSay-WIqolFn-JkhXTfftclt4HY2rzD4w70hTmCEgvUGYr5WLWKDzU-8K6n03FuCW2tUTcvQviuUK6eJW9rhNHxUNzhW0zS-xwkSBsiwams9qKJLBHtWnnDvVzwILiEg0G12Ceq0wRhKsPIyeDjCMN8q6eH2TjA4vlVp5L33R0ubej_tVToikfX8nywwWt0itL3MBnHTsd69PEtDqVFKG2jO_A" alt="App Screenshot 8" class="screenshot-img">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdiaBp-VlGW8bc0FKxO1qGJl_QDYd5jAB2VeWjyfWoFSay-WIqolFn-JkhXTfftclt4HY2rzD4w70hTmCEgvUGYr5WLWKDzU-8K6n03FuCW2tUTcvQviuUK6eJW9rhNHxUNzhW0zS-xwkSBsiwams9qKJLBHtWnnDvVzwILiEg0G12Ceq0wRhKsPIyeDjCMN8q6eH2TjA4vlVp5L33R0ubej_tVToikfX8nywwWt0itL3MBnHTsd69PEtDqVFKG2jO_A"
+                            alt="App Screenshot 8" class="screenshot-img">
                     </div>
                 </div>
             </div>
@@ -1332,45 +1421,71 @@
             <div class="partner-marquee">
                 <!-- Set 1 -->
                 <div class="partner-logo">
-                    <svg viewBox="0 0 24 24" fill="#f4a261"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 7h5a3 3 0 0 1 0 6H7V7zm2 2v2h3a1 1 0 0 0 0-2H9z" fill="#fff"/></svg>
+                    <svg viewBox="0 0 24 24" fill="#f4a261">
+                        <rect x="2" y="2" width="20" height="20" rx="4" />
+                        <path d="M7 7h5a3 3 0 0 1 0 6H7V7zm2 2v2h3a1 1 0 0 0 0-2H9z" fill="#fff" />
+                    </svg>
                     <span>MangaDex</span>
                 </div>
                 <div class="partner-logo">
-                    <svg viewBox="0 0 24 24" fill="#e63946"><rect width="24" height="24" rx="4"/><path d="M12 6v12M6 12h12" stroke="#fff" stroke-width="3"/></svg>
+                    <svg viewBox="0 0 24 24" fill="#e63946">
+                        <rect width="24" height="24" rx="4" />
+                        <path d="M12 6v12M6 12h12" stroke="#fff" stroke-width="3" />
+                    </svg>
                     <span>MANGA<sup>+</sup></span>
                 </div>
                 <div class="partner-logo">
-                    <svg viewBox="0 0 24 24" fill="#457b9d"><circle cx="12" cy="12" r="10"/><path d="M9 16l3-6 3 6" stroke="#fff" stroke-width="2" fill="none"/></svg>
+                    <svg viewBox="0 0 24 24" fill="#457b9d">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M9 16l3-6 3 6" stroke="#fff" stroke-width="2" fill="none" />
+                    </svg>
                     <span>ComicWalker</span>
                 </div>
                 <div class="partner-logo">
-                    <svg viewBox="0 0 24 24" fill="#e76f51"><path d="M12 2l3 7h7l-6 5 2 7-6-5-6 5 2-7-6-5h7z"/></svg>
+                    <svg viewBox="0 0 24 24" fill="#e76f51">
+                        <path d="M12 2l3 7h7l-6 5 2 7-6-5-6 5 2-7-6-5h7z" />
+                    </svg>
                     <span>JUMP</span>
                 </div>
                 <div class="partner-logo">
-                    <svg viewBox="0 0 24 24" fill="#4a90e2"><path d="M4 6h16v12H4z M4 9h16 M8 6v12"/></svg>
+                    <svg viewBox="0 0 24 24" fill="#4a90e2">
+                        <path d="M4 6h16v12H4z M4 9h16 M8 6v12" />
+                    </svg>
                     <span>MangaReader</span>
                 </div>
-                
+
                 <!-- Set 2 (for duplication) -->
                 <div class="partner-logo">
-                    <svg viewBox="0 0 24 24" fill="#f4a261"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 7h5a3 3 0 0 1 0 6H7V7zm2 2v2h3a1 1 0 0 0 0-2H9z" fill="#fff"/></svg>
+                    <svg viewBox="0 0 24 24" fill="#f4a261">
+                        <rect x="2" y="2" width="20" height="20" rx="4" />
+                        <path d="M7 7h5a3 3 0 0 1 0 6H7V7zm2 2v2h3a1 1 0 0 0 0-2H9z" fill="#fff" />
+                    </svg>
                     <span>MangaDex</span>
                 </div>
                 <div class="partner-logo">
-                    <svg viewBox="0 0 24 24" fill="#e63946"><rect width="24" height="24" rx="4"/><path d="M12 6v12M6 12h12" stroke="#fff" stroke-width="3"/></svg>
+                    <svg viewBox="0 0 24 24" fill="#e63946">
+                        <rect width="24" height="24" rx="4" />
+                        <path d="M12 6v12M6 12h12" stroke="#fff" stroke-width="3" />
+                    </svg>
                     <span>MANGA<sup>+</sup></span>
                 </div>
                 <div class="partner-logo">
-                    <svg viewBox="0 0 24 24" fill="#457b9d"><circle cx="12" cy="12" r="10"/><path d="M9 16l3-6 3 6" stroke="#fff" stroke-width="2" fill="none"/></svg>
+                    <svg viewBox="0 0 24 24" fill="#457b9d">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M9 16l3-6 3 6" stroke="#fff" stroke-width="2" fill="none" />
+                    </svg>
                     <span>ComicWalker</span>
                 </div>
                 <div class="partner-logo">
-                    <svg viewBox="0 0 24 24" fill="#e76f51"><path d="M12 2l3 7h7l-6 5 2 7-6-5-6 5 2-7-6-5h7z"/></svg>
+                    <svg viewBox="0 0 24 24" fill="#e76f51">
+                        <path d="M12 2l3 7h7l-6 5 2 7-6-5-6 5 2-7-6-5h7z" />
+                    </svg>
                     <span>JUMP</span>
                 </div>
                 <div class="partner-logo">
-                    <svg viewBox="0 0 24 24" fill="#4a90e2"><path d="M4 6h16v12H4z M4 9h16 M8 6v12"/></svg>
+                    <svg viewBox="0 0 24 24" fill="#4a90e2">
+                        <path d="M4 6h16v12H4z M4 9h16 M8 6v12" />
+                    </svg>
                     <span>MangaReader</span>
                 </div>
             </div>
@@ -1383,7 +1498,7 @@
                     <h2 class="features-title">Designed for the Obsessed</h2>
                     <p class="features-subtitle">Every detail tuned for the perfect reading session.</p>
                 </div>
-                
+
                 <div class="features-grid">
                     <!-- Feature 1 -->
                     <div class="feature-card reveal">
@@ -1391,52 +1506,58 @@
                             <span class="material-symbols-outlined">bolt</span>
                         </div>
                         <h3 class="feature-title">Ultra-Fast Loading</h3>
-                        <p class="feature-desc">Pre-fetching technology ensures the next page is always ready before you even swipe. Zero buffering.</p>
+                        <p class="feature-desc">Pre-fetching technology ensures the next page is always ready before you
+                            even swipe. Zero buffering.</p>
                     </div>
-                    
+
                     <!-- Feature 2 -->
                     <div class="feature-card reveal" style="transition-delay: 0.1s;">
                         <div class="feature-icon-container">
                             <span class="material-symbols-outlined">cloud_off</span>
                         </div>
                         <h3 class="feature-title">Offline Mode</h3>
-                        <p class="feature-desc">Download entire volumes with a single tap. Read seamlessly during your commute or off the grid.</p>
+                        <p class="feature-desc">Download entire volumes with a single tap. Read seamlessly during your
+                            commute or off the grid.</p>
                     </div>
-                    
+
                     <!-- Feature 3 -->
                     <div class="feature-card reveal" style="transition-delay: 0.2s;">
                         <div class="feature-icon-container">
                             <span class="material-symbols-outlined">tune</span>
                         </div>
                         <h3 class="feature-title">Customizable Reader</h3>
-                        <p class="feature-desc">Tweak brightness, reading direction, background colors, and tap zones to match your exact preference.</p>
+                        <p class="feature-desc">Tweak brightness, reading direction, background colors, and tap zones to
+                            match your exact preference.</p>
                     </div>
-                    
+
                     <!-- Feature 4 -->
                     <div class="feature-card reveal">
                         <div class="feature-icon-container">
                             <span class="material-symbols-outlined">auto_awesome</span>
                         </div>
                         <h3 class="feature-title">AI Recommendations</h3>
-                        <p class="feature-desc">Get personalized manga suggestions powered by our smart neural recommendation engine.</p>
+                        <p class="feature-desc">Get personalized manga suggestions powered by our smart neural
+                            recommendation engine.</p>
                     </div>
-                    
+
                     <!-- Feature 5 -->
                     <div class="feature-card reveal" style="transition-delay: 0.1s;">
                         <div class="feature-icon-container">
                             <span class="material-symbols-outlined">database</span>
                         </div>
                         <h3 class="feature-title">1200+ Sources</h3>
-                        <p class="feature-desc">Access a massive library of manga from over a thousand sources worldwide, aggregated all in one app.</p>
+                        <p class="feature-desc">Access a massive library of manga from over a thousand sources
+                            worldwide, aggregated all in one app.</p>
                     </div>
-                    
+
                     <!-- Feature 6 -->
                     <div class="feature-card reveal" style="transition-delay: 0.2s;">
                         <div class="feature-icon-container">
                             <span class="material-symbols-outlined">language</span>
                         </div>
                         <h3 class="feature-title">Read in Your Language</h3>
-                        <p class="feature-desc">Built-in localization and multi-language scanlation sources ensure you never miss any update.</p>
+                        <p class="feature-desc">Built-in localization and multi-language scanlation sources ensure you
+                            never miss any update.</p>
                     </div>
                 </div>
             </div>
@@ -1447,11 +1568,12 @@
             <div class="container">
                 <div class="cta-card reveal">
                     <h2 class="cta-title">Join the Night Owls</h2>
-                    <p class="cta-desc">Elevate your manga experience today. Free, open-source, and built specifically for the community.</p>
-                    
+                    <p class="cta-desc">Elevate your manga experience today. Free, open-source, and built specifically
+                        for the community.</p>
+
                     <!-- 3 Support Download Cards -->
                     <div class="download-options-grid">
-                        <a href="https://www.up-4ever.net/uedo3uposzw2" class="download-card" target="_blank">
+                        <a href="https://www.up-4ever.net/gupphx3irt5n" class="download-card" target="_blank">
                             <span class="material-symbols-outlined card-icon">cloud_download</span>
                             <div class="card-details">
                                 <span class="card-title">UP4EVER</span>
@@ -1459,7 +1581,7 @@
                             </div>
                         </a>
 
-                        <a href="https://aii.sh/MusEze5" class="download-card" target="_blank">
+                        <a href="https://aii.sh/totoro" class="download-card" target="_blank">
                             <span class="material-symbols-outlined card-icon">link</span>
                             <div class="card-details">
                                 <span class="card-title">ShrinkBixaby</span>
@@ -1467,10 +1589,10 @@
                             </div>
                         </a>
 
-                        <a href="https://ouo.io/DQajoNc" class="download-card" target="_blank">
+                        <a href="https://gplinks.co/totoro" class="download-card" target="_blank">
                             <span class="material-symbols-outlined card-icon">bolt</span>
                             <div class="card-details">
-                                <span class="card-title">Ouo.io</span>
+                                <span class="card-title">Gp Links</span>
                                 <span class="card-badge">Support Option 3</span>
                             </div>
                         </a>
@@ -1481,13 +1603,17 @@
                         <span class="material-symbols-outlined alert-icon">volunteer_activism</span>
                         <div class="alert-content">
                             <strong>Support the Developer (v1.0.0)!</strong>
-                            <p>To support me and help maintain active development of Totoro, please consider downloading from one of the options below. These links help offset server and maintenance costs!</p>
+                            <p>To support me and help maintain active development of Totoro, please consider downloading
+                                from one of the options below. These links help offset server and maintenance costs!</p>
                         </div>
                     </div>
 
                     <!-- Link to other versions -->
                     <div style="z-index: 2;">
-                        <a href="versions.html" style="color: var(--primary); text-decoration: none; font-size: 0.95rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.25rem; transition: color var(--transition-smooth);" onmouseenter="this.style.color='var(--primary-hover)'" onmouseleave="this.style.color='var(--primary)'">
+                        <a href="versions.html"
+                            style="color: var(--primary); text-decoration: none; font-size: 0.95rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.25rem; transition: color var(--transition-smooth);"
+                            onmouseenter="this.style.color='var(--primary-hover)'"
+                            onmouseleave="this.style.color='var(--primary)'">
                             <span class="material-symbols-outlined" style="font-size: 1.2rem;">history</span>
                             Looking for other versions?
                         </a>
@@ -1496,20 +1622,25 @@
                     <!-- Donate Link -->
                     <div style="margin-top: 0.5rem; z-index: 2;">
                         <a href="donate.html" class="btn btn-secondary">
-                            <span class="material-symbols-outlined" style="color: var(--primary);">volunteer_activism</span>
+                            <span class="material-symbols-outlined"
+                                style="color: var(--primary);">volunteer_activism</span>
                             Donate Directly
                         </a>
                     </div>
         </section>
 
         <!-- Advertisement Banner -->
-        <div style="width: 100%; max-width: 728px; margin: 3rem auto 1rem auto; padding: 1rem; background: rgba(19, 27, 46, 0.4); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; position: relative; z-index: 5; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); box-sizing: border-box;">
-            <div style="font-family: var(--font-body); font-size: 0.7rem; color: var(--on-surface-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">Sponsored Link</div>
-            
+        <div
+            style="width: 100%; max-width: 728px; margin: 3rem auto 1rem auto; padding: 1rem; background: rgba(19, 27, 46, 0.4); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; position: relative; z-index: 5; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); box-sizing: border-box;">
+            <div
+                style="font-family: var(--font-body); font-size: 0.7rem; color: var(--on-surface-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">
+                Sponsored Link</div>
+
             <!-- BEGIN AADS AD UNIT 2451446 -->
-            <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99998; box-sizing: border-box;">
+            <div id="frame"
+                style="width: 100%; margin: auto; position: relative; z-index: 99998; box-sizing: border-box;">
                 <iframe data-aa='2451446' src='//acceptable.a-ads.com/2451446/?size=Adaptive'
-                                  style='border:0; padding:0; width:100%; height:110px; overflow:hidden; display: block; margin: auto;'></iframe>
+                    style='border:0; padding:0; width:100%; height:110px; overflow:hidden; display: block; margin: auto;'></iframe>
             </div>
             <!-- END AADS AD UNIT 2451446 -->
         </div>
@@ -1521,11 +1652,12 @@
         <div class="container footer-grid">
             <a href="#" class="footer-logo">
                 <svg viewBox="0 0 24 24">
-                    <path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L7.33,18C12,18 21,15 22,2C22,2 14.5,3 9.5,8.5C11.5,7 14.3,6.62 17,8Z"/>
+                    <path
+                        d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L7.33,18C12,18 21,15 22,2C22,2 14.5,3 9.5,8.5C11.5,7 14.3,6.62 17,8Z" />
                 </svg>
                 <span>Totoro</span>
             </a>
-            
+
             <ul class="footer-links">
                 <li><a href="privacy.html">Privacy Policy</a></li>
                 <li><a href="terms.html">Terms of Service</a></li>
@@ -1534,7 +1666,7 @@
                 <li><a href="https://github.com/">GitHub</a></li>
                 <li><a href="https://t.me/">Telegram</a></li>
             </ul>
-            
+
             <div class="copyright">
                 &copy; 2026 Totoro Manga. Built for the night.
             </div>
@@ -1544,7 +1676,7 @@
     <!-- JavaScript Interactions -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            
+
             // 1. SCROLL NAVBAR GLASSMORPHISM EFFECT
             const navbar = document.getElementById('navbar');
             const handleScroll = () => {
@@ -1634,4 +1766,5 @@
         });
     </script>
 </body>
+
 </html>
