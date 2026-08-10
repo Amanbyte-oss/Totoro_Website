@@ -1141,6 +1141,7 @@
         .download-options-grid {
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 1.25rem;
             width: 100%;
             max-width: 900px;
@@ -1163,7 +1164,7 @@
             padding: 2.25rem 1.5rem;
             text-decoration: none;
             color: var(--on-surface);
-            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s, box-shadow 0.3s, opacity 0.3s;
             cursor: pointer;
             width: 100%;
         }
@@ -1172,6 +1173,57 @@
             transform: translateY(-4px) scale(1.02);
             border-color: var(--primary);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px var(--primary-glow);
+        }
+
+        .download-card-primary {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, rgba(244, 162, 97, 0.08), rgba(231, 111, 81, 0.12));
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px var(--primary-glow);
+            position: relative;
+            overflow: visible;
+        }
+
+        .recommendation-badge {
+            position: absolute;
+            top: -12px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+            color: var(--on-primary);
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-full);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 5px 15px rgba(244, 162, 97, 0.4);
+            z-index: 5;
+        }
+
+        .download-card-secondary {
+            transform: scale(0.9);
+            opacity: 0.65;
+            background-color: transparent;
+            border-color: var(--border-subtle);
+            padding: 1.75rem 1.25rem;
+        }
+
+        .download-card-secondary:hover {
+            opacity: 1;
+            transform: translateY(-4px) scale(0.93);
+        }
+
+        .download-card-secondary .card-icon {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--on-surface-muted);
+        }
+
+        .download-card-secondary:hover .card-icon {
+            background-color: var(--on-surface-muted);
+            color: var(--surface-low);
+        }
+
+        .download-card-secondary .card-badge {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--on-surface-muted);
         }
 
         .card-icon {
@@ -1710,14 +1762,15 @@
 
                     <!-- 4 Support Download Cards -->
                     <div class="download-options-grid">
-                        <a href="https://www.up-4ever.net/4uccrz0quuap" class="download-card" target="_blank">
+                        <a href="https://www.up-4ever.net/4uccrz0quuap" class="download-card download-card-primary" target="_blank">
+                            <span class="recommendation-badge">Recommended</span>
                             <span class="material-symbols-outlined card-icon">cloud_download</span>
                             <div class="card-details">
                                 <span class="card-title">UP4EVER</span>
                                 <span class="card-badge">Download v1.0.1 (Latest)</span>
                             </div>
                         </a>
-                        <a href="https://www.mediafire.com/file/8q2f9peis2em6dg/Totoro-release+1.0.1.apk/file" class="download-card" target="_blank">
+                        <a href="https://www.mediafire.com/file/8q2f9peis2em6dg/Totoro-release+1.0.1.apk/file" class="download-card download-card-secondary" target="_blank">
                             <span class="material-symbols-outlined card-icon">cloud_download</span>
                             <div class="card-details">
                                 <span class="card-title">MediaFire</span>
