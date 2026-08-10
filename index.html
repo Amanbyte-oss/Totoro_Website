@@ -574,7 +574,8 @@
         .showcase {
             padding: 5rem 0;
             background-color: var(--surface-lowest);
-            border-y: 1px solid var(--border-subtle);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
             position: relative;
             overflow: hidden;
         }
@@ -908,6 +909,7 @@
             border: 1px solid transparent;
             background: linear-gradient(135deg, rgba(244, 162, 97, 0.35), transparent 60%) border-box;
             -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
             pointer-events: none;
