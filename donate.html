@@ -803,58 +803,8 @@
             </div>
             
             <div class="content-block">
-                <!-- Tab Switching Buttons -->
-                <div class="tabs-container">
-                    <button class="tab-btn active" id="btn-india" onclick="switchTab('india')">India (UPI)</button>
-                    <button class="tab-btn" id="btn-worldwide" onclick="switchTab('worldwide')">Worldwide (PayPal)</button>
-                </div>
-                
-                <!-- INDIA (UPI) CONTENT -->
-                <div class="donate-content active" id="content-india">
-                    <div class="payment-method-header">
-                        <span class="material-symbols-outlined method-icon">qr_code_scanner</span>
-                        <h3>Donate via UPI</h3>
-                        <p>Scan the QR code or copy the UPI ID below to pay directly from any Indian UPI app (BHIM, Google Pay, PhonePe, Paytm, etc.).</p>
-                    </div>
-                    
-                    <div class="qr-container">
-                        <!-- Stylized dummy UPI QR code SVG -->
-                        <svg class="qr-code-img" viewBox="0 0 200 200" width="180" height="180">
-                            <rect x="0" y="0" width="200" height="200" fill="#ffffff" rx="12"/>
-                            <!-- UPI standard patterns -->
-                            <rect x="15" y="15" width="50" height="50" fill="none" stroke="#131b2e" stroke-width="6"/>
-                            <rect x="27" y="27" width="26" height="26" fill="#131b2e"/>
-                            <rect x="135" y="15" width="50" height="50" fill="none" stroke="#131b2e" stroke-width="6"/>
-                            <rect x="147" y="27" width="26" height="26" fill="#131b2e"/>
-                            <rect x="15" y="135" width="50" height="50" fill="none" stroke="#131b2e" stroke-width="6"/>
-                            <rect x="27" y="147" width="26" height="26" fill="#131b2e"/>
-                            <!-- Dummy QR pixels -->
-                            <rect x="80" y="20" width="10" height="30" fill="#131b2e"/>
-                            <rect x="100" y="15" width="20" height="10" fill="#131b2e"/>
-                            <rect x="85" y="65" width="30" height="15" fill="#131b2e"/>
-                            <rect x="30" y="80" width="40" height="10" fill="#131b2e"/>
-                            <rect x="140" y="80" width="35" height="15" fill="#131b2e"/>
-                            <rect x="80" y="100" width="15" height="40" fill="#131b2e"/>
-                            <rect x="110" y="110" width="40" height="20" fill="#131b2e"/>
-                            <rect x="150" y="140" width="30" height="30" fill="#131b2e"/>
-                            <rect x="80" y="150" width="25" height="10" fill="#131b2e"/>
-                            <rect x="110" y="150" width="15" height="35" fill="#131b2e"/>
-                        </svg>
-                        <p class="qr-caption">Scan to pay Aman Sharma</p>
-                    </div>
-
-                    <div class="copy-field">
-                        <span class="copy-label">UPI ID:</span>
-                        <input type="text" value="sharma.aman@okaxis" readonly id="upi-id-input">
-                        <button class="copy-btn" onclick="copyText('upi-id-input', this)">
-                            <span class="material-symbols-outlined">content_copy</span>
-                            <span>Copy</span>
-                        </button>
-                    </div>
-                </div>
-                
                 <!-- WORLDWIDE (PAYPAL) CONTENT -->
-                <div class="donate-content" id="content-worldwide">
+                <div class="donate-content active" id="content-worldwide">
                     <div class="payment-method-header">
                         <span class="material-symbols-outlined method-icon">payments</span>
                         <h3>Donate via PayPal</h3>
@@ -931,27 +881,7 @@
 
     <!-- JavaScript Interactions -->
     <script>
-        // 1. Switch Tab Logic
-        function switchTab(type) {
-            const btnIndia = document.getElementById('btn-india');
-            const btnWorldwide = document.getElementById('btn-worldwide');
-            const contentIndia = document.getElementById('content-india');
-            const contentWorldwide = document.getElementById('content-worldwide');
-
-            if (type === 'india') {
-                btnIndia.classList.add('active');
-                btnWorldwide.classList.remove('active');
-                contentIndia.classList.add('active');
-                contentWorldwide.classList.remove('active');
-            } else {
-                btnWorldwide.classList.add('active');
-                btnIndia.classList.remove('active');
-                contentWorldwide.classList.add('active');
-                contentIndia.classList.remove('active');
-            }
-        }
-
-        // 2. Copy Text Logic
+        // 1. Copy Text Logic
         function copyText(elementId, btn) {
             const el = document.getElementById(elementId);
             if (el) {
@@ -1041,33 +971,7 @@
 
             revealElements.forEach(el => revealObserver.observe(el));
 
-            // 6. GEOLOCATION LOCATION API CHECK
-            // Fetches client info from ipapi.co to determine country code.
-            // Automatically toggles the active view tab to Worldwide if country code is not 'IN' (India).
-            const detectUserCountry = () => {
-                fetch('https://ipapi.co/json/')
-                    .then(response => {
-                        if (!response.ok) throw new Error('Network error');
-                        return response.json();
-                    })
-                    .then(data => {
-                        if (data && data.country_code) {
-                            if (data.country_code !== 'IN') {
-                                switchTab('worldwide');
-                            } else {
-                                switchTab('india');
-                            }
-                        }
-                    })
-                    .catch(error => {
-                        console.warn('Geolocation API check failed, defaulting to India tab:', error);
-                        // Falls back safely to India (UPI) default active view
-                        switchTab('india');
-                    });
-            };
-            detectUserCountry();
-
-            // 7. CUSTOM GLOW CURSOR FOLLOWER
+            // 2. CUSTOM GLOW CURSOR FOLLOWER
             const cursor = document.querySelector('.cursor-follower');
             if (cursor) {
                 let mouseX = window.innerWidth / 2;
