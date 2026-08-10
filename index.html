@@ -206,21 +206,58 @@
             left: 0;
             right: 0;
             z-index: 100;
-            transition: background-color var(--transition-smooth), backdrop-filter var(--transition-smooth), border-color var(--transition-smooth), padding var(--transition-smooth);
-            padding: 1.5rem 0;
+            transition: background-color var(--transition-smooth), backdrop-filter var(--transition-smooth), border-color var(--transition-smooth);
+            padding: 0;
         }
 
         .navbar-scrolled {
             background-color: rgba(11, 19, 38, 0.75);
             backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border-subtle);
-            padding: 1rem 0;
+            padding: 0;
         }
 
         .navbar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+            transition: padding var(--transition-smooth);
+        }
+
+        .navbar-scrolled .container {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        /* ANNOUNCEMENT BANNER */
+        .announcement-banner {
+            background: linear-gradient(90deg, var(--primary), var(--primary-hover));
+            color: var(--on-primary);
+            text-align: center;
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            width: 100%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+            box-sizing: border-box;
+            position: relative;
+            z-index: 101;
+        }
+
+        .announcement-banner a {
+            color: var(--on-primary);
+            text-decoration: underline;
+            font-weight: 700;
+        }
+
+        .announcement-banner a:hover {
+            text-decoration: none;
         }
 
         .logo {
@@ -986,8 +1023,9 @@
 
         /* Mobile Breakpoint */
         @media (max-width: 768px) {
-            .navbar {
-                padding: 1rem 0;
+            .navbar .container {
+                padding-top: 1rem;
+                padding-bottom: 1rem;
             }
 
             .nav-links,
@@ -1087,6 +1125,7 @@
         /* Home page Download Section Grid & Cards */
         .download-options-grid {
             display: flex;
+            justify-content: center;
             gap: 1.25rem;
             width: 100%;
             max-width: 900px;
@@ -1096,7 +1135,8 @@
         }
 
         .download-card {
-            flex: 1;
+            max-width: 320px;
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -1238,6 +1278,10 @@
 
     <!-- Navigation Bar -->
     <nav class="navbar" id="navbar">
+        <div class="announcement-banner">
+            <span>🎉 Version 1.0.1 is now available!</span>
+            <a href="https://www.mediafire.com/file/8q2f9peis2em6dg/Totoro-release+1.0.1.apk/file" target="_blank">Download Now</a>
+        </div>
         <div class="container">
             <a href="#" class="logo">
                 <svg viewBox="0 0 24 24">
@@ -1585,46 +1629,21 @@
 
                     <!-- 4 Support Download Cards -->
                     <div class="download-options-grid">
-                        <a href="https://www.mediafire.com/file/ld4qk3jid1l5zbl/Totoro.apk/file" class="download-card" target="_blank">
+                        <a href="https://www.mediafire.com/file/8q2f9peis2em6dg/Totoro-release+1.0.1.apk/file" class="download-card" target="_blank">
                             <span class="material-symbols-outlined card-icon">cloud_download</span>
                             <div class="card-details">
                                 <span class="card-title">MediaFire</span>
-                                <span class="card-badge">Direct Download</span>
-                            </div>
-                        </a>
-
-                        <a href="https://www.up-4ever.net/gupphx3irt5n" class="download-card" target="_blank">
-                            <span class="material-symbols-outlined card-icon">cloud_download</span>
-                            <div class="card-details">
-                                <span class="card-title">UP4EVER</span>
-                                <span class="card-badge">Support Option 1</span>
-                            </div>
-                        </a>
-
-                        <a href="https://aii.sh/totoro" class="download-card" target="_blank">
-                            <span class="material-symbols-outlined card-icon">link</span>
-                            <div class="card-details">
-                                <span class="card-title">ShrinkBixaby</span>
-                                <span class="card-badge">Support Option 2</span>
-                            </div>
-                        </a>
-
-                        <a href="https://gplinks.co/totoro" class="download-card" target="_blank">
-                            <span class="material-symbols-outlined card-icon">bolt</span>
-                            <div class="card-details">
-                                <span class="card-title">Gp Links</span>
-                                <span class="card-badge">Support Option 3</span>
+                                <span class="card-badge">Download v1.0.1 (Latest)</span>
                             </div>
                         </a>
                     </div>
 
                     <!-- Support Alert Box -->
-                    <div class="support-alert" style="max-width: 600px; text-align: left;">
+                    <div class="support-alert" style="max-width: 600px; text-align: left; margin: 0 auto;">
                         <span class="material-symbols-outlined alert-icon">volunteer_activism</span>
                         <div class="alert-content">
-                            <strong>Support the Developer (v1.0.0)!</strong>
-                            <p>To support me and help maintain active development of Totoro, please consider downloading
-                                from one of the options below. These links help offset server and maintenance costs!</p>
+                            <strong>Official Release v1.0.1</strong>
+                            <p>This is the official, clean release of Totoro manga reader. If you wish to support the developer, please check out our <a href="donate.html" style="color: var(--primary); text-decoration: underline;">Donate</a> page!</p>
                         </div>
                     </div>
 
@@ -1683,8 +1702,8 @@
                 <li><a href="terms.html">Terms of Service</a></li>
                 <li><a href="api-docs.html">API Docs</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="https://github.com/">GitHub</a></li>
-                <li><a href="https://t.me/">Telegram</a></li>
+                <li><a href="https://github.com/Amanbyte-oss/Totoro" target="_blank">GitHub</a></li>
+                <li><a href="https://reddit.com/r/Totoro_read/s/905qeN1ZHE" target="_blank">Reddit</a></li>
             </ul>
 
             <div class="copyright">
