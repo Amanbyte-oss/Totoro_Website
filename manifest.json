@@ -1,0 +1,18 @@
+{
+  "name": "Totoro Manga & Manhwa Reader",
+  "short_name": "Totoro Manga",
+  "description": "Download Totoro Manga, the ultimate free manga and manhwa reader app. Experience offline reading, ultra-fast loading, and access to over 1200+ sources. Safe, open-source free manhwa app download.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1326",
+  "theme_color": "#0b1326",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "screen.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
