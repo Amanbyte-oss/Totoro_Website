@@ -1,5 +1,5 @@
 ---
-name: Midnight Totoro
+name: Midnight TotoroHaven
 colors:
   surface: '#0b1326'
   surface-dim: '#0b1326'
